@@ -166,7 +166,7 @@ class Program
         //        }
         //    }
         //}
-
+        
         //Update all users info based on id except for money
         if(serverSettings.Users == null){
             serverSettings.Users = new System.Collections.Generic.Dictionary<string, User>();
