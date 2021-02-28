@@ -2,7 +2,6 @@
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 using Discord;
 using Discord.Commands;
@@ -166,14 +165,14 @@ class Program
         //        }
         //    }
         //}
-        
+
         //Update all users info based on id except for money
         if(serverSettings.Users == null){
             serverSettings.Users = new System.Collections.Generic.Dictionary<string, User>();
             foreach(SocketGuildUser user in guild.Users){
                 if(user.Id != _client.CurrentUser.Id){
                     User guildUser = new User();
-                    guildUser.money = 0.0f;
+                    guildUser.credits = 0.0f;
                     guildUser.userName = user.Username;
                     guildUser.userTag = user.Discriminator;
                     serverSettings.Users.Add($"{user.Id}",guildUser);
@@ -193,7 +192,7 @@ class Program
                 else{
                     if(user.Id != _client.CurrentUser.Id){
                         guildUser = new User();
-                        guildUser.money = 0.0f;
+                        guildUser.credits = 0.0f;
                         guildUser.userName = user.Username;
                         guildUser.userTag = user.Discriminator;
                         serverSettings.Users.Add($"{user.Id}",guildUser);
@@ -243,6 +242,9 @@ class Program
                 foreach(SocketGuild guild in _client.Guilds){
                     await UpdateBasicServerInfo(guild);
                 }
+            }
+            else if(msg.Content.Contains("!addChannel")){
+                
             }
 
         }   

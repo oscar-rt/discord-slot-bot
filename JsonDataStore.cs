@@ -4,7 +4,6 @@ using ServerConfig;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-
 public class JsonDataStore : IDataService
 {
     private readonly object ReadWriteLock = new object();
